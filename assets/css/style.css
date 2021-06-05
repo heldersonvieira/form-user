@@ -1,0 +1,95 @@
+.form {
+  border-top: 4px solid cornflowerblue;
+
+  background: white;
+
+  padding: 2rem;
+  margin-bottom: 1rem;
+
+  border-radius: 5px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.personal__inf {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.personal__inf h3 {
+  width: 100%;
+}
+
+.input__container.name {
+  width: 70%;
+}
+
+.input__container.phone {
+  width: 28%;
+}
+
+.cep {
+  width: 200px;
+}
+
+.street__district {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input__container.street {
+  width: 50%;
+}
+
+.input__container.complement {
+  width: 15%;
+}
+
+.input__container.district {
+  width: 31%;
+}
+
+.city__state {
+  display: flex;
+}
+
+.input__container.city {
+  width: 200px;
+  margin-right: 2%;
+}
+
+.input__container.state {
+  width: 50px;
+}
+
+@media screen and (max-width: 720px) {
+
+  .personal__inf, .street__district {
+    flex-direction: column;
+  }
+
+  .input__container.name {
+    width: 100%;
+  }
+
+  .input__container.phone {
+    min-width: 200px;
+  }
+
+  .input__container.street {
+    min-width: 100%;
+  }
+
+  .input__container.complement {
+    min-width: 200px;
+  }
+
+  .input__container.district {
+    min-width: 200px;
+  }
+
+  .input__container.city {
+    min-width: 200px;
+  }
+
+}

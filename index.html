@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/buttons.css">
+    <link rel="stylesheet" href="./assets/css/table.css">
+    <link rel="stylesheet" href="./assets/css/inputs.css">
+    <link rel="stylesheet" href="./assets/css/global.css">
+</head>
+
+
+<body>
+    <header>
+        <h1>
+            Fomulário
+        </h1>
+    </header>
+
+
+    <div class="container">
+
+        <form class="form" data-form-person>
+
+            <div class="personal__inf">
+
+                <h3>Dados Pessoais</h3>
+
+                <div class="input__container name">
+                    <input data-type="name" type="text" placeholder="Nome" data-name title="Digite o nome"required>
+                    <span class="msg-error"></span>
+                </div>
+                <div class="input__container phone">
+                    <input data-type="phone" type="tel" placeholder="Telefone" data-phone required title="Digite um telefone">
+                    <span class="msg-error"></span>
+                </div>
+                
+            </div>
+
+            <div class="address__inf">
+
+                <h3>Endereço</h3>
+
+                <div class="input__container cep">
+                    <input data-type="cep" type="text" placeholder="CEP 00000000" required title="Apenas núme" data-cep>
+                    <span class="msg-error"></span>
+                </div>
+                
+                <div class="street__district">
+                    <div class="input__container street">
+                        <input data-type="street" type="text" placeholder="Rua / Avendida / Travessa" data-street>
+                        <span class="msg-error"></span>
+                    </div>
+                    <div class="input__container complement">
+                        <input data-type="complement" type="text" placeholder="Complemento" data-complement>
+                        <span class="msg-error"></span>
+                    </div>
+                    <div class="input__container district">
+                        <input data-type="district" type="text" placeholder="Bairro" data-district>
+                        <span class="msg-error"></span>
+                    </div>
+                </div>
+
+                <div class="city__state">
+                    <div class="input__container city">
+                        <input data-type="city" type="text" placeholder="Cidade" data-city >
+                        <span class="msg-error"></span>
+                    </div>
+                    <div class="input__container state">
+                        <input data-type="state" type="text" placeholder="UF" data-state >
+                        <span class="msg-error"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="buttons">
+                <button class="add" type="submit">Adicionar</button>
+                <button class="delete" type="submit" data-button-delete>Apagar todos</button>
+            </div>
+
+        </form>
+
+        <div class="data__table">
+            
+        </div>
+    </div>
+
+    
+    <script type="module" src="./main.js"></script>
+    
+    <script>
+
+
+        /*  A REQUISIÇÃO DE ABERTURA NÃO ABRE O BANCO OU INICIA UMA TRANSAÇÃO 
+            A CHAMADA DA FUNÇÃO open() RETORNA UM OBJETO IDBOpenDBRequest COM 
+            OO RESULTADO success OU UM erro QUE DEVE SER TRATADO.
+            O RESULTADO PARA A FUNÇÃO open() É UMA INSTANCIA DE IDBDatabase 
+            SE O BANCO NÃO EXISTE ELE É CRIADO PELO open(), ENTÃO O EVENTO onupgradneeded
+            É CHAMADO E VOCÊ CRIA O SCHEMA DO BANCO NESSE EVENTO  
+            
+            EXEMPLO
+            IDBOpenDBRequest {onblocked: null, result: IDBDatabase, 
+            error: null, source: null, onupgradeneeded: ƒ, …}
+            
+            */
+        
+        // let db;
+        // let request = window.indexedDB.open('DBteste', 1);
+
+        // request.onupgradeneeded = (event) => {
+        //     console.log('Criando ou atualizando o banco.');
+            
+        //     // console.log(event.target);
+        //     console.log(event.target.result);
+
+        //     let db = event.target.result;
+        //     let objectStore = db.createObjectStore('nome', {keyPath: 'minhaChave'})
+        // }
+
+        // request.onerror = function(event) {
+
+        //     alert(`Erro ein! ERRO ${event.target.errorCode}`)
+        //     console.log(event.target.errorCode);
+        //     // console.log(event.type);
+        // }
+        
+        // request.onsuccess = (event) => {
+            
+        //     db = request.result;
+        //     console.log(event.type);
+        //     console.log(db);
+        // }
+
+        // const DadosClientes = [
+        //     { ssn: "444-44-4444", nome: "Bill", idade: 35, email: "bill@company.com" },
+        //     { ssn: "555-55-5555", nome: "Donna", idade: 32, email: "donna@home.org" }
+        // ];
+
+        // const DadosClientes2 = [
+        //     { ssn: "008.588.933-47", nome: "Helderson", idade: 35, email: "helderson@company.com" },
+        //     { ssn: "600.025.963-85", nome: "Aline", idade: 32, email: "aline@home.org" }
+        // ];
+
+        // const dbName = 'clientes';
+        // var db;
+        // var request = indexedDB.open(dbName, 3);
+
+        // request.onerror = function(event) {
+        //     console.log(event.target.error);
+        // };
+    
+        // // version 2 do banco
+        // request.onupgradeneeded = function(event) {
+        //     var db = event.target.result;
+
+        //     // Cria um objectStore para conter a informação sobre nossos clientes. Nós vamos
+        //     // usar "ssn" como key path porque sabemos que é único;
+        //     var objectStore = db.createObjectStore("clientes", { keyPath: "ssn" });
+
+        //     // Cria um índice para buscar clientes pelo nome. Podemos ter nomes
+        //     // duplicados, então não podemos usar como índice único.
+        //     objectStore.createIndex("nome", "nome", { unique: false });
+
+        //     // Cria um índice para buscar clientes por email. Queremos ter certeza
+        //     // que não teremos 2 clientes com o mesmo e-mail;
+        //     objectStore.createIndex("email", "email", { unique: true });
+
+        //     // Usando transação oncomplete para afirmar que a criação do objectStore
+        //     // é terminada antes de adicionar algum dado nele.
+        //     objectStore.transaction.oncomplete = function(event) {
+        //         // Armazenando valores no novo objectStore.
+        //         var clientesObjectStore = db.transaction("clientes", "readwrite").objectStore("clientes");
+        //         for (var i in DadosClientes) {
+        //         clientesObjectStore.add(DadosClientes[i]);
+        //         }
+        //     }
+        // };
+
+        // request.onsuccess = function(event) {
+        //     return request.result;
+            
+        // };
+
+        
+        // // version 3 do banco
+        // request.onupgradeneeded = function (event) {
+
+        //     var db = event.target.result;
+
+        //     // Criando outro objeto chamado "names" com o autoIncrement setado.
+        //     var objStore = db.createObjectStore("names", { autoIncrement : true });
+
+        //     // Porque "names" tem o the key generator, a chave para o nome é gerada automaticamente.
+        //     // Os registros adicionados serão assim:
+        //     // key : 1 => value : "Bill"
+        //     // key : 2 => value : "Donna"
+        //     for (var i in DadosClientes) {
+        //         objStore.add(DadosClientes[i].nome);
+        //     }
+        // }
+
+        // function add(db) {
+
+        //     var transaction = db.transaction(['clientes'], 'readwrite');
+        //     var objectStore = transaction.objectStore('clientes');
+
+        //     transaction.onerror = function(event) {
+        //         console.log('erro transaction');
+        //     }
+
+        //     transaction.oncomplete = function(event) {
+        //         console.log('transaction success');
+        //     }
+
+        //     for (let i in DadosClientes2) {
+        //         let request = objectStore.add(DadosClientes2[1]);
+        //         request.onsuccess = function(event) {
+        //             console.log('add success');
+        //         }
+        //     }
+        // }
+
+        
+        // var request = db.transaction(['clientes'], 'readwrite')
+        //                 .objectStore('clientes')
+        //                 .delete('444-44-4444');
+        
+        // request.onsuccess = (event) => {
+        //     console.log('deletado com sucesso');
+        // }
+        
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+.data__table {
+    padding-bottom: 5rem;
+}
+
+table {
+    width: 100%;
+    
+    border: none;
+}
+
+tr {
+    width: 100%; 
+
+    text-align: left;
+}
+
+th {
+    background: cornflowerblue;
+
+    color: white;
+
+    padding: 0.5rem 0.5rem;
+}
+
+td {
+    background: white;
+    
+    border: none;
+
+    font-size: 0.9rem;
+    
+    padding: 0.5rem 0.5rem;
+}

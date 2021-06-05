@@ -1,0 +1,23 @@
+input {
+    height: 2rem;
+    width: 100%;
+
+    background: whitesmoke;
+
+    border: none;
+    border-radius: 5px;
+    
+    padding: 0 1rem;
+    margin-bottom: 0.5rem;
+}
+
+input::placeholder {
+    color: grey;
+}
+
+
+input:focus, input:active {
+    outline: none;
+
+    box-shadow: 0 0 3px  cornflowerblue;
+}
